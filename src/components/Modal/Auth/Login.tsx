@@ -1,6 +1,6 @@
 import { authModalState } from '@/atoms/AuthModalAtom';
 import { useSetRecoilState } from 'recoil';
-import { border, Button, Flex, Input, Text } from '@chakra-ui/react';
+import { border, Button, Center, Flex, Input, Text } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '@/firbase/clientApp';
@@ -89,6 +89,27 @@ const Login: React.FC<LoginProps> = () => {
 				isLoading={loading}>
 				Log In
 			</Button>
+			<Flex
+				justifyContent='center'
+				mb={2}>
+				<Text
+					fontSize='9pt'
+					mr={1}>
+					Forgot your password ?
+				</Text>
+				<Text
+					fontSize='9pt'
+					color='blue.500'
+					cursor='pointer'
+					onClick={() =>
+						setAuthmodalState((prev) => ({
+							...prev,
+							view: 'resetPassword',
+						}))
+					}>
+					Reset
+				</Text>
+			</Flex>
 			<Flex
 				fontSize='9pt'
 				justifyContent='center'>
